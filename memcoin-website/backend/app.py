@@ -15,8 +15,11 @@ def index():
 def add_header(response):
     if 'video' in response.mimetype:
         response.headers['Cache-Control'] = 'public, max-age=3600'
-        response.headers['Accept-Ranges'] = 'bytes'  # Добавляем поддержку частичной загрузки
-        response.headers['Content-Length'] = str(os.path.getsize(os.path.join(app.static_folder, 'videos/cucuanimation.mp4')))
+        response.headers['Accept-Ranges'] = 'bytes'
+        try:
+            response.headers['Content-Length'] = str(os.path.getsize(os.path.join(app.static_folder, 'videos/cucuanimation.mp4')))
+        except:
+            pass
     return response
 
 if __name__ == '__main__':
