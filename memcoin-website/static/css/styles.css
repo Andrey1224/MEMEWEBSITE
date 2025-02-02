@@ -1,0 +1,1908 @@
+/* Reset & Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+:root {
+    --neon-green: #00ff9d;
+    --neon-blue: #00f0ff;
+    --neon-purple: #bf00ff;
+    --glow-strength: 10px;
+    --black: #0a0a0a;
+    --black-gradient: #1a1a1a;
+    --deep-green: #004225;
+    --accent-purple: #bf00ff;
+    --accent-blue: #00f0ff;
+}
+
+/* Navigation styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Увеличили высоту навбара с 80px до 100px */
+    background-color: rgba(10, 10, 10, 0.95); /* Полупрозрачный черный фон */
+    backdrop-filter: blur(8px); /* Эффект размытия фона */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Тень для объема */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px; /* Увеличили боковые отступы */
+    z-index: 1000;
+    border-radius: 0 0 30px 30px; /* Скругление нижних углов навбара */
+    border-bottom: 1px solid var(--neon-green);
+}
+
+.navbar-logo img {
+    height: 85px; /* Увеличили с 70px до 85px */
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo img:hover {
+    transform: scale(1.05);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 40px; /* Увеличили расстояние между пунктами меню */
+    list-style: none;
+    font-family: 'Montserrat', sans-serif; /* Новый шрифт */
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px; /* Увеличили размер шрифта */
+    font-weight: 600; /* Сделали жирнее */
+    text-transform: uppercase; /* Заглавные буквы */
+    letter-spacing: 1px; /* Расстояние между буквами */
+    padding: 8px 15px; /* Увеличили отступы вокруг текста */
+    border-radius: 25px; /* Увеличили скругление */
+    transition: all 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #50C878; /* Изумрудно-зеленый вместо золотого */
+    background: rgba(80, 200, 120, 0.1); /* Легкая подсветка при наведении */
+    transform: translateY(-2px); /* Эффект поднятия */
+}
+
+.navbar-buttons {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Увеличили расстояние между кнопками */
+}
+
+.social-button img {
+    height: 48px; /* Увеличили с 40px до 48px */
+    transition: transform 0.3s ease;
+}
+
+.social-button:hover img {
+    transform: scale(1.15); /* Увеличили эффект при наведении */
+}
+
+.buy-button {
+    padding: 15px 35px; /* Увеличили padding */
+    background: linear-gradient(45deg, var(--neon-green), #3D9970) !important; /* Градиент */
+    box-shadow: 0 0 10px var(--neon-green),
+                0 0 20px var(--neon-green);
+    color: white;
+    border-radius: 50px; /* Максимальное скругление */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px; /* Увеличили размер шрифта */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0, 255, 157, 0.3);
+}
+
+.buy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(80, 200, 120, 0.4);
+}
+
+.buy-button:active {
+    transform: scale(0.95);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 120px; /* Увеличиваем отступ под навбаром */
+    background: linear-gradient(180deg, var(--black), var(--deep-green)) !important;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start; /* Меняем с center на flex-start */
+    justify-content: center;
+    border-radius: 0;
+    animation: none;
+    background-size: 100% 100% !important;
+}
+
+@keyframes gradientBG {
+    /* Удаляем, так как больше не используется */
+}
+
+@keyframes breathingGradient {
+    /* Удаляем, так как больше не используется */
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1400px; /* Увеличиваем максимальную ширину */
+    padding: 40px;
+    background: none;
+    border: none;
+    position: relative;
+    display: grid;
+    grid-template-areas: 
+        "title title"
+        "slogan slogan"
+        "image image"
+        "address address"; /* Адрес занимает всю ширину */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.hero-image {
+    width: 90vh; /* Большой размер относительно высоты экрана */
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto;
+    grid-area: image;
+    filter: drop-shadow(0 0 30px rgba(80, 200, 120, 0.4));
+    animation: floatImage 6s ease-in-out infinite;
+}
+
+.hero-media {
+    grid-area: image;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-video {
+    width: 70vh; /* Уменьшаем размер видео */
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 30px rgba(80, 200, 120, 0.4));
+    border-radius: 20px;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hero-video.loaded {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .hero-video {
+        width: 80%;
+        max-width: 300px;
+    }
+}
+
+@keyframes floatImage {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-content h1 {
+    grid-area: title;
+    position: relative;
+    font-size: 5rem; /* уменьшено с 6rem, чтобы слоган вмещался */
+    text-align: left;
+    margin-left: 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: none;
+    -webkit-text-fill-color: initial;
+    text-shadow: 
+        0 0 7px var(--neon-green),
+        0 0 10px var(--neon-green);
+    filter: none;
+    animation: slideInLeft 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    z-index: 2;
+}
+
+.hero-slogan {
+    grid-area: slogan;
+    position: relative;
+    font-size: 2.5rem;
+    text-align: right;
+    margin-right: 10%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #ffffff;
+    background: none;
+    -webkit-text-fill-color: initial;
+    text-shadow: 
+        0 0 7px var(--neon-green),
+        0 0 10px var(--neon-green);
+    filter: none;
+    animation: slideInRight 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+    line-height: 1.3;
+    max-width: 600px;
+    margin-left: auto;
+}
+
+@keyframes softPulse {
+    0%, 100% {
+        text-shadow: 
+            0 0 7px var(--neon-green),
+            0 0 10px var(--neon-green);
+    }
+    50% {
+        text-shadow: 
+            0 0 10px var(--neon-green),
+            0 0 15px var(--neon-green);
+    }
+}
+
+/* Усиливаем эффект неонового пульса */
+@keyframes neonPulse {
+    0% { 
+        filter: drop-shadow(0 0 10px var(--neon-green)) 
+                drop-shadow(0 0 20px var(--neon-green))
+                brightness(1.2);
+    }
+    50% { 
+        filter: drop-shadow(0 0 20px var(--neon-green)) 
+                drop-shadow(0 0 40px var(--neon-green))
+                brightness(1.4);
+    }
+    100% { 
+        filter: drop-shadow(0 0 10px var(--neon-green)) 
+                drop-shadow(0 0 20px var(--neon-green))
+                brightness(1.2);
+    }
+}
+
+/* Добавляем новую анимацию для градиента */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Удаляем старые анимации и эффекты */
+.hero-content h1::before,
+.hero-slogan::before {
+    display: none;
+}
+
+.token-address {
+    grid-area: address;
+    position: relative;
+    width: 80%; /* Увеличиваем ширину */
+    max-width: 800px; /* Добавляем максимальную ширину */
+    margin: 40px auto; /* Центрируем и добавляем отступ сверху */
+    background: rgba(0, 66, 37, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 30px 40px;
+    border-radius: 30px;
+    box-shadow: 0 0 20px var(--neon-green),
+                inset 0 0 20px rgba(0, 255, 157, 0.2);
+    animation: slideInUp 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+    border: 1px solid var(--neon-green);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.token-address span {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.token-address code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-family: 'Consolas', monospace;
+    font-size: 1.1rem;
+    color: var(--neon-green);
+    border: 1px solid rgba(80, 200, 120, 0.2);
+    flex-grow: 1;
+    text-align: center;
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.token-address button {
+    background: linear-gradient(45deg, #50C878, #3D9970);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px; /* Максимальное скругление */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.token-address button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.token-address button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(80, 200, 120, 0.4);
+}
+
+.token-address button:hover::before {
+    left: 100%;
+}
+
+.token-address button:active {
+    transform: scale(0.95);
+}
+
+/* Удаляем hero-description, так как описание переносится в секцию "О нас" */
+.hero-description {
+    display: none;
+}
+
+/* Добавляем стили для анимации появления токен адреса */
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+/* Новые анимации для динамичного появления */
+@keyframes slideInLeft {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInUp {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Section Headers */
+.about-section h2,
+.tokenomics-section h2,
+.roadmap-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: white;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.about-section h2::after,
+.tokenomics-section h2::after,
+.roadmap-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--neon-green), var(--accent-purple));
+}
+
+/* About Section */
+.about-section {
+    padding: 60px 20px; /* Уменьшаем вертикальные отступы */
+    background: linear-gradient(180deg, var(--deep-green), var(--black));
+    border-radius: 0;
+    margin-bottom: 0;
+    color: white;
+    margin-top: 0; /* Поднимаем секцию выше */
+}
+
+/* Tokenomics Section */
+.tokenomics-section {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, var(--black), var(--deep-green)); /* Обновленный градиент */
+    border-radius: 0;
+    position: relative; /* Добавляем для корректного наложения секций */
+    z-index: 1; /* Обеспечиваем правильное отображение градиента */
+    color: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 2.5rem;
+    color: var(--neon-green);
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.about-text > p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px var(--neon-green),
+                0 0 40px rgba(191, 0, 255, 0.3);
+    border-color: var(--neon-green);
+    background: rgba(0, 255, 157, 0.05);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+    filter: drop-shadow(0 0 5px var(--neon-green));
+}
+
+.feature h4 {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.feature p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 66, 37, 0.2);
+    animation: floatImage 6s ease-in-out infinite;
+}
+
+/* Tokenomics Section */
+.tokenomics-section {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, var(--black), var(--deep-green)); /* Обновленный градиент */
+    border-radius: 0; /* Убираем скругление, так как секция примыкает к "О нас" */
+    position: relative; /* Добавляем для корректного наложения секций */
+    z-index: 1; /* Обеспечиваем правильное отображение градиента */
+}
+
+.tokenomics-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tokenomics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.tokenomics-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.tokenomics-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px var(--neon-green),
+                0 0 40px rgba(191, 0, 255, 0.3);
+    border-color: var(--neon-green);
+    background: rgba(0, 255, 157, 0.05);
+}
+
+.tokenomics-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 2px 5px rgba(0, 66, 37, 0.2));
+}
+
+.tokenomics-item h3 {
+    color: var(--neon-green);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.token-amount {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #50C878;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.token-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.distribution-chart {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 66, 37, 0.1);
+    margin-top: 40px;
+    border: 1px solid rgba(0, 255, 157, 0.2);
+}
+
+.distribution-chart h3 {
+    text-align: center;
+    color: #004225;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chart-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.chart-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--percentage);
+    background: linear-gradient(90deg, var(--neon-green), var(--accent-purple));
+    opacity: 0.4;
+    transition: width 1s ease;
+}
+
+.chart-label {
+    color: white;
+    font-weight: 600;
+    z-index: 1;
+    flex: 1;
+}
+
+.chart-value {
+    color: #50C878;
+    font-weight: bold;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container {
+        margin-top: 20px;
+    }
+
+    .tokenomics-item {
+        padding: 30px 20px;
+    }
+}
+
+/* Добавляем стили для детального описания токеномики */
+.tokenomics-details {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
+}
+
+.details-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    transition: all 0.3s ease;
+}
+
+.details-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 255, 157, 0.05);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+}
+
+.details-item h4 {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.details-item p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Обновляем стили для графика распределения */
+.chart-item {
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.chart-item:hover {
+    background: rgba(0, 255, 157, 0.1);
+    transform: translateX(10px);
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .tokenomics-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .details-item {
+        padding: 20px;
+    }
+}
+
+/* Roadmap Section */
+.roadmap-section {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, var(--deep-green), var(--black));
+    border-radius: 0;
+    color: white;
+}
+
+.roadmap-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.roadmap-timeline {
+    position: relative;
+    padding-left: 50px;
+}
+
+.roadmap-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(180deg, #50C878, #3D9970);
+    border-radius: 3px;
+}
+
+.roadmap-item {
+    position: relative;
+    padding: 30px;
+    margin-bottom: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 66, 37, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+}
+
+.roadmap-item::before {
+    content: '';
+    position: absolute;
+    left: -54px;
+    top: 30px;
+    width: 20px;
+    height: 20px;
+    background: #50C878;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(80, 200, 120, 0.2);
+    transition: all 0.3s ease;
+}
+
+.roadmap-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 25px rgba(0, 66, 37, 0.2);
+}
+
+.roadmap-item:hover::before {
+    background: #fff;
+    border-color: #50C878;
+    box-shadow: 0 0 0 8px rgba(80, 200, 120, 0.2);
+}
+
+.roadmap-date {
+    color: #50C878;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.roadmap-item h3 {
+    color: var(--neon-green);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.roadmap-item ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.roadmap-item li {
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.status.completed {
+    color: #50C878;
+}
+
+.status.in-progress {
+    color: #FFA500;
+    animation: pulse 2s infinite;
+}
+
+.status.pending {
+    color: #999;
+}
+
+.progress-bar {
+    height: 6px;
+    background: rgba(0, 66, 37, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-green), var(--accent-blue));
+    border-radius: 3px;
+    transition: width 1s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .roadmap-timeline {
+        padding-left: 30px;
+    }
+
+    .roadmap-item::before {
+        left: -34px;
+    }
+
+    .roadmap-item {
+        padding: 20px;
+    }
+}
+
+/* Footer */
+.footer {
+    background: var(--black);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 0; /* Скругление верхних углов футера */
+    border-top: 1px solid var(--neon-green);
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    border-radius: 20px;
+    padding: 8px 15px;
+}
+
+.social-links a:hover {
+    color: #50C878; /* Изумрудно-зеленый вместо золотого */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-areas: 
+            "title"
+            "slogan"
+            "image"
+            "address";
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .hero-slogan {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .token-address {
+        margin-right: 0;
+        justify-self: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .navbar {
+        padding: 0 20px;
+    }
+    
+    .navbar-links {
+        display: none;
+    }
+
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-image {
+        max-width: 200px;
+    }
+
+    .about-section h2,
+    .tokenomics-section h2,
+    .roadmap-section h2 {
+        font-size: 2rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        order: -1;
+    }
+
+    /* Навигация */
+    .navbar {
+        height: 80px;
+        padding: 0 15px;
+    }
+
+    .navbar-logo img {
+        height: 50px;
+    }
+
+    .social-button img {
+        height: 32px;
+    }
+
+    .buy-button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    /* Hero секция */
+    .hero-section {
+        padding-top: 90px;
+    }
+
+    .hero-content {
+        padding: 20px;
+        margin-top: 0;
+    }
+
+    .token-address {
+        width: 95%;
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-slogan {
+        font-size: 1.8rem;
+        padding: 0 20px;
+    }
+
+    .token-address {
+        margin: 0 auto;
+        padding: 15px;
+        min-width: auto;
+        width: 90%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .token-address code {
+        font-size: 0.9rem;
+        padding: 8px;
+        width: 100%;
+    }
+
+    .token-address button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Остальные секции */
+    .about-grid,
+    .about-features,
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .about-section,
+    .tokenomics-section,
+    .roadmap-section {
+        padding: 60px 15px;
+    }
+
+    .about-section h2,
+    .tokenomics-section h2,
+    .roadmap-section h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .about-text h3 {
+        font-size: 1.8rem;
+    }
+
+    .about-text > p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .feature {
+        padding: 20px;
+    }
+
+    .hero-image {
+        width: 80%;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-slogan {
+        font-size: 1.2rem;
+    }
+
+    .navbar-buttons {
+        gap: 10px;
+    }
+
+    .token-address {
+        padding: 10px;
+    }
+}
+
+/* Новые стили для эффекта "reveal" при скролле */
+.reveal {
+    opacity: 1; /* Меняем с 0 на 1, чтобы секции были видны */
+    transform: none; /* Убираем transform у самих секций */
+}
+
+/* Анимация для заголовков */
+.reveal h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+/* Анимация для карточек и элементов */
+.reveal .feature,
+.reveal .tokenomics-item,
+.reveal .roadmap-item,
+.reveal .about-text h3,
+.reveal .about-text p,
+.reveal .about-image,
+.reveal .distribution-chart {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+/* Анимация для элементов в ряд (features, tokenomics) */
+.reveal .feature:nth-child(1),
+.reveal .tokenomics-item:nth-child(1) {
+    transition-delay: 0.2s;
+}
+.reveal .feature:nth-child(2),
+.reveal .tokenomics-item:nth-child(2) {
+    transition-delay: 0.4s;
+}
+.reveal .feature:nth-child(3),
+.reveal .tokenomics-item:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+/* Анимация для элементов дорожной карты */
+.reveal .roadmap-item:nth-child(1) { transition-delay: 0.3s; }
+.reveal .roadmap-item:nth-child(2) { transition-delay: 0.6s; }
+.reveal .roadmap-item:nth-child(3) { transition-delay: 0.9s; }
+
+/* Активные состояния */
+.reveal.active h2,
+.reveal.active .feature,
+.reveal.active .tokenomics-item,
+.reveal.active .roadmap-item,
+.reveal.active .about-text h3,
+.reveal.active .about-text p,
+.reveal.active .about-image,
+.reveal.active .distribution-chart {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Стили для кнопки управления музыкой */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-toggle {
+    background: rgba(0, 66, 37, 0.85);
+    border: 1px solid var(--neon-green);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px var(--neon-green);
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+.music-icon {
+    font-size: 24px;
+    color: var(--neon-green);
+}
+
+/* Обновленные медиа-запросы для лучшей адаптивности */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .hero-slogan {
+        font-size: 2rem;
+    }
+
+    .hero-video {
+        width: 60vh;
+        max-width: 90%;
+    }
+
+    .hero-section {
+        padding-top: 100px;
+    }
+
+    .token-address {
+        width: 90%;
+        padding: 25px 30px;
+    }
+}
+
+/* Стили для планшетов */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-areas: 
+            "title"
+            "slogan"
+            "image"
+            "address";
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        margin: 0;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .hero-slogan {
+        font-size: 1.8rem;
+        margin: 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero-video {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .token-address {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 450px;
+    }
+
+    .about-section,
+    .tokenomics-section,
+    .roadmap-section {
+        padding: 60px 20px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .tokenomics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .hero-section {
+        padding-top: 90px;
+    }
+
+    .hero-content {
+        padding: 20px;
+        margin-top: 0;
+    }
+
+    .token-address {
+        width: 95%;
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-slogan {
+        font-size: 1.8rem;
+        padding: 0 20px;
+    }
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 480px) {
+    .navbar {
+        height: 70px;
+        padding: 0 10px;
+    }
+
+    .navbar-logo img {
+        height: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-slogan {
+        font-size: 1.4rem;
+    }
+
+    .hero-video {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .token-address {
+        padding: 15px;
+        min-width: auto;
+        width: 95%;
+    }
+
+    .roadmap-item {
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+
+    .distribution-chart {
+        padding: 20px;
+    }
+
+    .hero-section {
+        padding-top: 80px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-slogan {
+        font-size: 1.4rem;
+    }
+}
+
+/* Стили для очень маленьких экранов */
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-slogan {
+        font-size: 1.2rem;
+    }
+
+    .navbar-buttons {
+        gap: 8px;
+    }
+
+    .buy-button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .social-button img {
+        height: 28px;
+    }
+}
+
+/* Добавляем поддержку ландшафтной ориентации */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 120vh;
+    }
+
+    .hero-content {
+        padding-top: 100px;
+    }
+
+    .hero-video {
+        width: 50vh;
+    }
+}
+
+/* Стили для больших планшетов и маленьких ноутбуков */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .hero-content {
+        gap: 30px;
+    }
+
+    .hero-video {
+        width: 80vh;
+    }
+
+    .about-grid,
+    .tokenomics-container {
+        width: 90%;
+    }
+}
+
+/* Добавляем стили для прелоадера */
+.video-preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.video-preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(0, 255, 157, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--neon-green);
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Добавляем стили для новой секции миссии */
+.about-mission {
+    margin-top: 40px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    transition: all 0.3s ease;
+}
+
+.about-mission:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 255, 157, 0.05);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+}
+
+.about-mission h4 {
+    color: var(--neon-green);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-mission p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Обновляем стили для feature чтобы добавить больше игривости */
+.feature:hover .feature-icon {
+    animation: dance 0.5s ease infinite;
+}
+
+@keyframes dance {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+}
+
+/* Стили для огуречного дождя */
+.cucumber-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2000; /* Увеличиваем z-index, чтобы огурцы падали перед контентом */
+}
+
+.falling-cucumber {
+    position: absolute;
+    top: -50px; /* Начальная позиция над экраном */
+    opacity: 0.7;
+    animation: fall linear;
+    will-change: transform;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-50px) rotate(0deg);
+    }
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Добавляем стили для эффекта "reveal" при скролле */
+.reveal {
+    opacity: 1; /* Меняем с 0 на 1, чтобы секции были видны */
+    transform: none; /* Убираем transform у самих секций */
+}
+
+/* Анимация для заголовков */
+.reveal h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+/* Анимация для карточек и элементов */
+.reveal .feature,
+.reveal .tokenomics-item,
+.reveal .roadmap-item,
+.reveal .about-text h3,
+.reveal .about-text p,
+.reveal .about-image,
+.reveal .distribution-chart {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+/* Анимация для элементов в ряд (features, tokenomics) */
+.reveal .feature:nth-child(1),
+.reveal .tokenomics-item:nth-child(1) {
+    transition-delay: 0.2s;
+}
+.reveal .feature:nth-child(2),
+.reveal .tokenomics-item:nth-child(2) {
+    transition-delay: 0.4s;
+}
+.reveal .feature:nth-child(3),
+.reveal .tokenomics-item:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+/* Анимация для элементов дорожной карты */
+.reveal .roadmap-item:nth-child(1) { transition-delay: 0.3s; }
+.reveal .roadmap-item:nth-child(2) { transition-delay: 0.6s; }
+.reveal .roadmap-item:nth-child(3) { transition-delay: 0.9s; }
+
+/* Активные состояния */
+.reveal.active h2,
+.reveal.active .feature,
+.reveal.active .tokenomics-item,
+.reveal.active .roadmap-item,
+.reveal.active .about-text h3,
+.reveal.active .about-text p,
+.reveal.active .about-image,
+.reveal.active .distribution-chart {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Стили для кнопки управления музыкой */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-toggle {
+    background: rgba(0, 66, 37, 0.85);
+    border: 1px solid var(--neon-green);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px var(--neon-green);
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+.music-icon {
+    font-size: 24px;
+    color: var(--neon-green);
+}
+
+/* Обновленные медиа-запросы для лучшей адаптивности */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .hero-slogan {
+        font-size: 2rem;
+    }
+
+    .hero-video {
+        width: 60vh;
+        max-width: 90%;
+    }
+}
+
+/* Стили для планшетов */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-areas: 
+            "title"
+            "slogan"
+            "image"
+            "address";
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        margin: 0;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .hero-slogan {
+        font-size: 1.8rem;
+        margin: 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero-video {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .token-address {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 450px;
+    }
+
+    .about-section,
+    .tokenomics-section,
+    .roadmap-section {
+        padding: 60px 20px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .tokenomics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 480px) {
+    .navbar {
+        height: 70px;
+        padding: 0 10px;
+    }
+
+    .navbar-logo img {
+        height: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-slogan {
+        font-size: 1.4rem;
+    }
+
+    .hero-video {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .token-address {
+        padding: 15px;
+        min-width: auto;
+        width: 95%;
+    }
+
+    .roadmap-item {
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+
+    .distribution-chart {
+        padding: 20px;
+    }
+}
+
+/* Стили для очень маленьких экранов */
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-slogan {
+        font-size: 1.2rem;
+    }
+
+    .navbar-buttons {
+        gap: 8px;
+    }
+
+    .buy-button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .social-button img {
+        height: 28px;
+    }
+}
+
+/* Добавляем поддержку ландшафтной ориентации */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 120vh;
+    }
+
+    .hero-content {
+        padding-top: 100px;
+    }
+
+    .hero-video {
+        width: 50vh;
+    }
+}
+
+/* Стили для больших планшетов и маленьких ноутбуков */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .hero-content {
+        gap: 30px;
+    }
+
+    .hero-video {
+        width: 80vh;
+    }
+
+    .about-grid,
+    .tokenomics-container {
+        width: 90%;
+    }
+}
+
+/* Добавляем стили для прелоадера */
+.video-preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.video-preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(0, 255, 157, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--neon-green);
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Добавляем стили для новой секции миссии */
+.about-mission {
+    margin-top: 40px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    transition: all 0.3s ease;
+}
+
+.about-mission:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 255, 157, 0.05);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+}
+
+.about-mission h4 {
+    color: var(--neon-green);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-mission p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Обновляем стили для feature чтобы добавить больше игривости */
+.feature:hover .feature-icon {
+    animation: dance 0.5s ease infinite;
+}
+
+@keyframes dance {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+}
+
+/* Стили для огуречного дождя */
+.cucumber-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2000; /* Увеличиваем z-index, чтобы огурцы падали перед контентом */
+}
+
+.falling-cucumber {
+    position: absolute;
+    top: -50px; /* Начальная позиция над экраном */
+    opacity: 0.7;
+    animation: fall linear;
+    will-change: transform;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-50px) rotate(0deg);
+    }
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Добавляем стили для переключателя языков */
+.language-switcher {
+    display: flex;
+    gap: 5px;
+    margin-right: 20px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--neon-green);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: rgba(0, 255, 157, 0.1);
+    transform: translateY(-2px);
+}
+
+.lang-btn.active {
+    background: var(--neon-green);
+    color: var(--black);
+}

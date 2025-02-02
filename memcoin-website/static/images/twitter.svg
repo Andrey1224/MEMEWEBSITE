@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+    <!-- Background circle -->
+    <circle cx="120" cy="120" r="120" fill="#000000"/>
+    <!-- X logo -->
+    <path fill="#ffffff" d="M55 50l42.5 60L40 185h31.25l42.5-55 51.25 55H195l-45-63.75L203.75 50H172.5l-40 51.25L85 50H55zm41.25 23.75h18.75l71.25 87.5h-18.75l-71.25-87.5z"/>
+</svg>

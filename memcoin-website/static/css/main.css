@@ -1,0 +1,17 @@
+/* Reset & Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* ...existing base styles... */
+/* ...existing navigation styles... */
+/* ...existing hero section styles... */
+/* ...existing about section styles... */
+/* ...existing tokenomics section styles... */
+/* ...existing roadmap section styles... */
+/* ...existing footer styles... */
+/* ...existing animations... */
+/* ...existing cucumber rain styles... */

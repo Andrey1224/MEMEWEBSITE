@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Memecoin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=2">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}?v=2">
+</head>
+<body>
+    <!-- Добавляем контейнер для огуречного дождя -->
+    <div class="cucumber-rain" id="cucumberRain"></div>
+    
+    <!-- Обновляем аудио элемент -->
+    <audio id="background-music" preload="auto">
+        <source src="{{ url_for('static', filename='audio/meme_coin_mini_midi.mp3') }}" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <div id="music-control" class="music-control">
+        <button id="music-toggle" class="music-toggle">
+            <span class="music-icon">🔊</span>
+        </button>
+    </div>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        </div>
+        
+        <ul class="navbar-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#tokenomics">Tokenomics</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+        </ul>
+
+        <div class="navbar-buttons">
+            <a href="https://t.me/pumpcucumber" target="_blank" class="social-button">
+                <img src="{{ url_for('static', filename='images/telegram.svg') }}" alt="Telegram">
+            </a>
+            <a href="https://x.com/CukeGroove" target="_blank" class="social-button">
+                <img src="{{ url_for('static', filename='images/twitter.svg') }}" alt="Twitter">
+            </a>
+            <a href="#" class="buy-button">Buy</a>
+        </div>
+    </nav>
+
+    <!-- Hero секция -->
+    <section id="home" class="hero-section reveal">
+        <div class="hero-content">
+            <h1>CukeGroove</h1>
+            <h2 class="hero-slogan">Shake your greens – let’s dance our way to the moon!</h2>
+            <div class="hero-media">
+                <!-- Добавляем прелоадер -->
+                <div class="video-preloader">
+                    <div class="loading-spinner"></div>
+                    <p>Loading...</p>
+                </div>
+                <video 
+                    id="hero-video"
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline 
+                    class="hero-video"
+                    poster="{{ url_for('static', filename='images/hero-image.png') }}"
+                    preload="auto"> <!-- Добавляем preload -->
+                    <source src="{{ url_for('static', filename='videos/cucuanimation.mp4') }}" type="video/mp4" media="all">
+                    <img src="{{ url_for('static', filename='images/hero-image.png') }}" alt="Hero" class="hero-image">
+                </video>
+            </div>
+            <div class="token-address">
+                <span>Token Address:</span>
+                <code id="tokenAddress">0x1234...5678</code>
+                <button onclick="copyAddress()">Copy</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="about-section reveal">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Cucumber Revolution</h3>
+                    <p>We are not just a meme coin, we are a gang of meme lovers led by a dancing cucumber! 🕺 Our token is created with a love for cucumbers, healthy finances, and unrestrained fun.</p>
+                    <div class="about-features">
+                        <div class="feature reveal">
+                            <span class="feature-icon">🥒</span>
+                            <h4>Juicy Potential</h4>
+                            <p>Transparent as a cucumber in a jar, and just as crunchy!</p>
+                        </div>
+                        <div class="feature reveal">
+                            <span class="feature-icon">🌱</span>
+                            <h4>Organic Growth</h4>
+                            <p>We grow like cucumbers after rain, only faster</p>
+                        </div>
+                        <div class="feature reveal">
+                            <span class="feature-icon">🤝</span>
+                            <h4>Strong Community</h4>
+                            <p>Together we are a salad, alone we are just vegetables!</p>
+                        </div>
+                    </div>
+                    <div class="about-mission reveal">
+                        <h4>🚀 Our Mission</h4>
+                        <p>To create a community where memes and fun pave the way to financial freedom. Because even the craziest idea can ignite the crypto world!</p>
+                    </div>
+                </div>
+                <div class="about-image reveal">
+                    <img src="{{ url_for('static', filename='images/about-image.png') }}" alt="About Us">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Токеномика -->
+    <section id="tokenomics" class="tokenomics-section reveal">
+        <h2>Tokenomics</h2>
+        <div class="tokenomics-container">
+            <div class="tokenomics-grid">
+                <div class="tokenomics-item reveal">
+                    <div class="tokenomics-icon">💰</div>
+                    <h3>Total Supply</h3>
+                    <p class="token-amount">1,000,000,000</p>
+                    <p class="token-description">Cucumber tokens</p>
+                </div>
+                <div class="tokenomics-item reveal">
+                    <div class="tokenomics-icon">📈</div>
+                    <h3>Trade Fee</h3>
+                    <p class="token-amount">5%</p>
+                    <p class="token-description">Protection against manipulation<br>Project support</p>
+                </div>
+                <div class="tokenomics-item reveal">
+                    <div class="tokenomics-icon">🔒</div>
+                    <h3>Security</h3>
+                    <p class="token-amount">100%</p>
+                    <p class="token-description">Smart contract audit<br>Team KYC</p>
+                </div>
+            </div>
+            <div class="distribution-chart reveal">
+                <h3>Token Distribution</h3>
+                <div class="chart-container">
+                    <div class="chart-item" style="--percentage: 50%">
+                        <span class="chart-label">Public Sale</span>
+                        <span class="chart-value">50%</span>
+                    </div>
+                    <div class="chart-item" style="--percentage: 20%">
+                        <span class="chart-label">Project Development</span>
+                        <span class="chart-value">20%</span>
+                    </div>
+                    <div class="chart-item" style="--percentage: 15%">
+                        <span class="chart-label">Bounty and Giveaways</span>
+                        <span class="chart-value">15%</span>
+                    </div>
+                    <div class="chart-item" style="--percentage: 10%">
+                        <span class="chart-label">Staking and Rewards</span>
+                        <span class="chart-value">10%</span>
+                    </div>
+                    <div class="chart-item" style="--percentage: 5%">
+                        <span class="chart-label">Charity</span>
+                        <span class="chart-value">5%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tokenomics-details reveal">
+                <div class="details-item">
+                    <h4>🌍 Public Sale (50%)</h4>
+                    <p>Providing liquidity and attracting investors</p>
+                </div>
+                <div class="details-item">
+                    <h4>🚀 Project Development (20%)</h4>
+                    <p>Marketing, partnerships, and infrastructure improvement</p>
+                </div>
+                <div class="details-item">
+                    <h4>🎁 Bounty and Giveaways (15%)</h4>
+                    <p>Encouraging community participation in promotion</p>
+                </div>
+                <div class="details-item">
+                    <h4>💎 Staking and Rewards (10%)</h4>
+                    <p>Encouraging long-term token holding</p>
+                </div>
+                <div class="details-item">
+                    <h4>❤️ Charity (5%)</h4>
+                    <p>Supporting initiatives in technology and social development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Дорожная карта -->
+    <section id="roadmap" class="roadmap-section reveal">
+        <h2>Roadmap</h2>
+        <div class="roadmap-container">
+            <div class="roadmap-timeline">
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-date">Q1 2024</div>
+                    <h3>Phase 1: Launch</h3>
+                    <ul>
+                        <li><span class="status completed">✓</span> Launch website</li>
+                        <li><span class="status completed">✓</span> Create social media</li>
+                        <li><span class="status in-progress">◉</span> Build crypto community</li>
+                        <li><span class="status pending">○</span> Organize presale</li>
+                        <li><span class="status pending">○</span> Listing on Pump.fun</li>
+                    </ul>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 40%"></div>
+                    </div>
+                </div>
+
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-date">Q2 2024</div>
+                    <h3>Phase 2: Development</h3>
+                    <ul>
+                        <li><span class="status pending">○</span> Launch on Radium</li>
+                        <li><span class="status pending">○</span> DEX marketing campaign</li>
+                        <li><span class="status pending">○</span> 5,000+ holders</li>
+                        <li><span class="status pending">○</span> $500K market cap</li>
+                    </ul>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-date">Q3 2024</div>
+                    <h3>Phase 3: Expansion</h3>
+                    <ul>
+                        <li><span class="status pending">○</span> Listing on Binance</li>
+                        <li><span class="status pending">○</span> NFT collection (10,000 NFTs)</li>
+                        <li><span class="status pending">○</span> 10,000+ holders</li>
+                        <li><span class="status pending">○</span> $1M+ market cap</li>
+                    </ul>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-date">Q4 2024</div>
+                    <h3>Phase 4: Scaling</h3>
+                    <ul>
+                        <li><span class="status pending">○</span> Listing on top-5 CEX</li>
+                        <li><span class="status pending">○</span> Cucumber DAO</li>
+                        <li><span class="status pending">○</span> 25,000+ holders</li>
+                        <li><span class="status pending">○</span> Global community</li>
+                    </ul>
+                    <div class="progress-bar"></div>
+                        <div class="progress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer reveal">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://t.me/pumpcucumber" target="_blank">Telegram</a>
+                <a href="https://x.com/CukeGroove" target="_blank">Twitter</a>
+            </div>
+            <p>&copy; 2024 Your Memecoin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/translations.js') }}"></script>
+</body>
+</html>
