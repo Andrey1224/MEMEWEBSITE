@@ -36,6 +36,13 @@
         width: 90%;
         padding: 25px 30px;
     }
+
+    .token-address .not-ready {
+         color: #ff00ff;
+         font-size: 1.2rem;
+         font-weight: bold;
+         text-shadow: 0 0 10px #ff00ff;
+    }
 }
 
 /* Mobile Menu Styles */

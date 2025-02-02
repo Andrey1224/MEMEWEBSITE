@@ -187,45 +187,6 @@ function toggleCucumberRain() {
     }
 }
 
-// Функция для переключения языка
-function switchLanguage(lang) {
-    // Сохраняем выбранный язык
-    localStorage.setItem('selectedLanguage', lang);
-    
-    // Обновляем активную кнопку
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-
-    // Обновляем все переводимые элементы
-    document.querySelectorAll('[data-translate]').forEach(element => {
-        const key = element.dataset.translate;
-        if (translations[lang] && translations[lang][key]) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = translations[lang][key];
-            } else {
-                element.textContent = translations[lang][key];
-            }
-        }
-    });
-}
-
-// Инициализация языка - теперь всегда английский
-document.addEventListener('DOMContentLoaded', function() {
-    // Устанавливаем английский язык
-    const elements = document.querySelectorAll('[data-translate]');
-    elements.forEach(element => {
-        const key = element.dataset.translate;
-        if (translations['en'][key]) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = translations['en'][key];
-            } else {
-                element.textContent = translations['en'][key];
-            }
-        }
-    });
-});
-
 // Mobile menu handling
 document.addEventListener('DOMContentLoaded', function() {
     // ...existing code...

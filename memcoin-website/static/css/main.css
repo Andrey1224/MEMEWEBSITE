@@ -9,6 +9,29 @@
 /* ...existing base styles... */
 /* ...existing navigation styles... */
 /* ...existing hero section styles... */
+
+@media (min-width: 1025px) {
+    .hero-section {
+        min-height: 45vh; /* уменьшаем с 60vh до 45vh */
+        padding-top: 60px;
+        padding-bottom: 20px; /* добавляем меньший нижний отступ */
+    }
+
+    .hero-content {
+        gap: 15px; /* уменьшаем расстояние между элементами */
+        padding: 20px 40px; /* уменьшаем вертикальные отступы */
+    }
+
+    .token-address {
+        margin: 20px auto; /* уменьшаем отступы у токен адреса */
+    }
+
+    .hero-video {
+        width: 45vh; /* уменьшаем размер видео пропорционально */
+        margin: 10px auto; /* уменьшаем отступы вокруг видео */
+    }
+}
+
 /* ...existing about section styles... */
 /* ...existing tokenomics section styles... */
 /* ...existing roadmap section styles... */
