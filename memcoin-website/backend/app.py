@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 from flask_cors import CORS
 
@@ -12,10 +13,12 @@ def index():
 
 @app.after_request
 def add_header(response):
-    # Кэширование видео на 1 час
     if 'video' in response.mimetype:
         response.headers['Cache-Control'] = 'public, max-age=3600'
+        response.headers['Accept-Ranges'] = 'bytes'  # Добавляем поддержку частичной загрузки
+        response.headers['Content-Length'] = str(os.path.getsize(os.path.join(app.static_folder, 'videos/cucuanimation.mp4')))
     return response
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port)
