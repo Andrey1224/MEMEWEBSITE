@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const video = document.getElementById('hero-video');
         if (video) {
             // Используем оригинальную версию видео
-            video.src = '/static/videos/cucuanimation.MP4';
+            video.src = '/static/videos/cucuanimation.mp4';
             
             video.setAttribute('playsinline', '');
             video.setAttribute('preload', 'metadata');
