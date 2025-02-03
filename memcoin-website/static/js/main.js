@@ -304,12 +304,19 @@ function createCucumberRain() {
 }
 
 // Оптимизируем видео для всех устройств
-/*
 document.addEventListener('DOMContentLoaded', function() {
     // ...existing code...
-    // video.src = '/static/videos/cucuanimation.MP4';
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        const video = document.getElementById('hero-video');
+        if (video) {
+            // Используем новое название файла
+            video.src = '/static/videos/cucuanimation.MP4';
+            
+            video.setAttribute('playsinline', '');
+            video.setAttribute('preload', 'metadata');
+        }
+    }
     // ...existing code...
 });
-*/
 
 // ...existing code...
