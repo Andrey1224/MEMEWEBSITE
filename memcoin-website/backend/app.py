@@ -17,6 +17,7 @@ def add_header(response):
         response.headers['Cache-Control'] = 'public, max-age=3600'
         response.headers['Accept-Ranges'] = 'bytes'
         response.headers.pop('Content-Disposition', None)  # Удаляем заголовок
+        response.headers['Content-Type'] = 'video/mp4'  # Добавляем явное указание типа контента
         try:
             response.headers['Content-Length'] = str(os.path.getsize(os.path.join(app.static_folder, 'videos/cucuanimation1.mp4')))
         except:
