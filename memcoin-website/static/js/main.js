@@ -320,3 +320,21 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ...existing code...
+
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('hero-video');
+    
+    // Современный способ определения iOS
+    function isIOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+            (navigator.maxTouchPoints && navigator.maxTouchPoints > 2 && /MacIntel/.test(navigator.platform));
+    }
+
+    // Если это iOS устройство, напрямую меняем источник видео
+    if (isIOS()) {
+        video.querySelector('source').src = '/static/videos/cucuanimation1.mp4';
+        video.load(); // Перезагружаем видео с новым источником
+    }
+});
+
+// ...existing code...
