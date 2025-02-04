@@ -17,7 +17,7 @@ def add_header(response):
         response.headers['Cache-Control'] = 'public, max-age=3600'
         response.headers['Accept-Ranges'] = 'bytes'
         try:
-            response.headers['Content-Length'] = str(os.path.getsize(os.path.join(app.static_folder, 'videos/cucuanimation.MP4')))
+            response.headers['Content-Length'] = str(os.path.getsize(os.path.join(app.static_folder, 'videos/cucuanimation1.mp4')))
         except:
             pass
     return response

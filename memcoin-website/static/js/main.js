@@ -338,3 +338,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ...existing code...
+
+// Убираем условие для iOS, так как теперь используем один файл для всех устройств
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('hero-video');
+    if (video) {
+        video.querySelector('source').src = '/static/videos/cucuanimation1.mp4';
+        video.load();
+    }
+});
+
+// ...existing code...
