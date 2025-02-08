@@ -757,6 +757,114 @@ body {
     background: rgba(0, 255, 157, 0.05);
 }
 
+.roadmap-title {
+    color: #50C878;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 0 10px rgba(80, 200, 120, 0.5);
+}
+
+.quarter-title {
+    color: var(--neon-green);
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+}
+
+.quarter-subtitle {
+    color: #50C878;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    font-style: italic;
+    display: block;
+}
+
+.roadmap-list {
+    list-style: none;
+    padding: 0;
+}
+
+.roadmap-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.roadmap-emoji {
+    font-size: 1.5rem;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 157, 0.1);
+    border-radius: 50%;
+    animation: float 3s ease-in-out infinite;
+}
+
+.roadmap-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.milestone-marker {
+    color: #50C878;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .roadmap-title {
+        font-size: 2rem;
+    }
+
+    .quarter-title {
+        font-size: 1.6rem;
+    }
+
+    .quarter-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .roadmap-emoji {
+        font-size: 1.3rem;
+        min-width: 35px;
+        height: 35px;
+    }
+
+    .roadmap-text {
+        font-size: 1rem;
+    }
+}
+
+.roadmap-quarter {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.roadmap-quarter:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+    background: rgba(0, 255, 157, 0.05);
+}
+
 .quarter-title {
     color: var(--neon-green);
     font-size: 2rem;
@@ -910,9 +1018,18 @@ body {
 .roadmap-date {
     color: #50C878;
     font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 1.4rem; /* Увеличиваем размер */
+    margin-bottom: 5px; /* Уменьшаем отступ снизу */
     font-family: 'Montserrat', sans-serif;
+    display: block; /* Делаем блочным элементом */
+}
+
+.roadmap-item h3 {
+    color: var(--neon-green);
+    font-size: 1.2rem; /* Немного уменьшаем размер */
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    display: block; /* Делаем блочным элементом */
 }
 
 .roadmap-item h3 {
@@ -986,6 +1103,14 @@ body {
 
     .roadmap-item {
         padding: 20px;
+    }
+
+    .roadmap-date {
+        font-size: 1.2rem;
+    }
+    
+    .roadmap-item h3 {
+        font-size: 1.1rem;
     }
 }
 
@@ -1638,4 +1763,87 @@ body {
     font-weight: bold;
     text-shadow: 0 0 10px #ff00ff;
 }
+/* ...existing code... */
+
+.roadmap-quarter {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.roadmap-date {
+    color: #50C878;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+}
+
+.quarter-subtitle {
+    color: var(--neon-green);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+}
+
+.roadmap-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.roadmap-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.roadmap-emoji {
+    font-size: 1.5rem;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 157, 0.1);
+    border-radius: 50%;
+}
+
+.roadmap-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .roadmap-date {
+        font-size: 1.6rem;
+    }
+    
+    .quarter-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .roadmap-emoji {
+        font-size: 1.2rem;
+        min-width: 30px;
+        height: 30px;
+    }
+    
+    .roadmap-text {
+        font-size: 1rem;
+    }
+}
+
 /* ...existing code... */
